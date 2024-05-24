@@ -1,0 +1,10 @@
+###
+POST http://localhost:8080/publish
+Content-Type: application/json
+
+{
+  "message": "hello",
+  "times": 12
+}
+
+<> 2024-05-23T115549.200.json
