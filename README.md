@@ -1,9 +1,22 @@
 # Getting Started
 
 1. Download Kafka, and start Kafka server and Zookeeper. https://kafka.apache.org/quickstart
-2. Create topic `consumer-events` with 3 partitions - `bin/kafka-topics.sh --create --topic consumer-demo --bootstrap-server localhost:9092 --partitions 3`
+2. Create topic `consumer-events` with partitions using command below.
 3. Tune parameters in `application.properties`.
 4. Start `./gradlew bootRun`
+
+in `<kakfa_download_dir>/config/server.properties`, add `delete.topic.enable=true`.
+This helps delete the topic immediately if we want to change number of partitions and experiment again.
+
+To delete topic
+```shell
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic consumer-demo --delete
+```
+
+To create topic with partitions
+```shell
+bin/kafka-topics.sh --create --topic consumer-demo --bootstrap-server localhost:9092 --partitions 3
+```
 
 
 To produce messages,
