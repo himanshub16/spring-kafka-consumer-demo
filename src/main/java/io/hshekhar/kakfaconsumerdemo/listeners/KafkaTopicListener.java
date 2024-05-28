@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 
 @Service
 public class KafkaTopicListener {
-    private static Logger log = LogManager.getLogger(KafkaTopicListener.class);
+    private static final Logger log = LogManager.getLogger(KafkaTopicListener.class);
     private final ExecutorService executorService;
 
     public KafkaTopicListener(@Value("${kafka.batch.processing.concurrency}") int processingConcurrency) {
