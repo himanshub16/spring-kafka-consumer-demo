@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,8 +25,7 @@ public class ApiController {
     @Autowired
     KafkaTemplate<Integer, String> kafkaTemplate;
 
-    @Autowired
-    @Qualifier("topicName")
+    @Value("${kafka.topic.name}")
     String topicName;
 
     @PostMapping("/publish")
