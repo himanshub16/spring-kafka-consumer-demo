@@ -24,7 +24,7 @@ public class ApiController {
 
     @PostMapping("/publish")
     public ResponseEntity<List<Long>> publishToKafka(@RequestBody PublishRequest request) {
-        logger.info("publishing {} messages to topic {}. message={}", request.message, request.times);
+        logger.info("publishing {} messages to topic {}. message={}", request.times, request.message, topicName);
         var offsets = IntStream.range(1, request.times + 1)
                 .boxed()
                 .map(idx -> {
